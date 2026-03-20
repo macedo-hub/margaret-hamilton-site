@@ -1,0 +1,102 @@
+/* --- Rotação da Logo (SÓ AO SCROLLAR) --- */
+@keyframes AutoRotateAnimation {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.autoRotate {
+  animation: AutoRotateAnimation linear both;
+  animation-timeline: view();
+  animation-range: entry 10% exit 50%; 
+  width: 100px;
+  height: 100px;
+}
+
+/* --- Efeito Glitch NASA (Sem corte e sem brilho extra) --- */
+.hero__nasa {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  /* O segredo: o texto original fica invisível para não dobrar a opacidade */
+  color: transparent; 
+  font-family: 'Nasa', sans-serif;
+  z-index: 1;
+  user-select: none;
+}
+
+.hero__nasa::before,
+.hero__nasa::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Cor sólida sem transparência para evitar o efeito de "clarear" nas pontas */
+  /* Se quiser um cinza bem clarinho/transparente, use uma cor fixa em vez de RGBA */
+  color: #ffffff30; /* Um cinza escuro tecnológico que combina com o fundo */
+  background: transparent;
+  pointer-events: none;
+}
+
+.hero__nasa::before {
+  /* Fatia de cima: vai exatamente até o meio (50%) */
+  clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+  animation: glitchTop 3s linear infinite;
+}
+
+.hero__nasa::after {
+  /* Fatia de baixo: começa exatamente no meio (50%) */
+  clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+  animation: glitchBottom 2s linear infinite;
+}
+
+/* Keyframes: Reduzi um pouco o deslocamento para não separar as fatias demais no mobile */
+@keyframes glitchTop {
+  2%, 64% { transform: translate(1px, -1px); }
+  4%, 60% { transform: translate(-1px, 1px); }
+  62% { transform: translate(4px, -1px) skew(-3deg); }
+}
+
+@keyframes glitchBottom {
+  2%, 64% { transform: translate(-1px, 0); }
+  4%, 60% { transform: translate(-1px, 0); }
+  62% { transform: translate(-4px, 1px) skew(3deg); }
+}
+
+/* --- Smooth Scroll Animation --- */
+.autoShow {
+  animation: text-appear both;
+  animation-timeline: view();
+  animation-range: entry 20% cover 100vh;
+}
+
+@keyframes text-appear {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- fadeup --- */
+.fadeup {
+  animation: fadeUp both;
+  animation-timeline: view();
+}
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+

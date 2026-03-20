@@ -1,0 +1,559 @@
+:root {
+  --quase-preto: #001219;
+  --mais-azul: #001524;
+  --nasa-azul: #0032A0;
+  --nasa-azul-2: #0A3C91;
+  --nasa-vermelho: #FC3C23;
+  --branco: #FFFFFF;
+  --texto: rgba(255, 255, 255, 0.92);
+  --texto-fraco: rgba(255, 255, 255, 0.72);
+  --borda: rgba(255, 255, 255, 0.12);
+  --cartao: rgba(255, 255, 255, 0.06);
+  --sombra: 0 20px 60px rgba(0, 0, 0, 0.45);
+  --raio: 22px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background:
+    radial-gradient(circle at top, rgba(0, 50, 160, 0.18), transparent 35%),
+    linear-gradient(180deg, var(--quase-preto), var(--mais-azul));
+  color: var(--texto);
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  background: var(--branco);
+  color: #000;
+  padding: 10px 14px;
+  border-radius: 999px;
+  z-index: 9999;
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
+/* =========================
+   HERO
+========================= */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  padding: 18px 16px 24px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  isolation: isolate;
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at center, rgba(255,255,255,0.03), transparent 40%),
+    linear-gradient(180deg, rgba(0,0,0,0.18), rgba(0,0,0,0.5));
+  z-index: 0;
+}
+
+.hero__titulo {
+  position: absolute;
+  top: 18px;
+  /* Nova forma de centralizar sem conflito: */
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  
+  width: min(92vw, 600px);
+  text-align: center;
+  font-size: clamp(1.2rem, 3.2vw, 2rem);
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: rgba(255,255,255,0.85);
+  text-shadow: 0 3px 14px rgba(0,0,0,0.5);
+  z-index: 5;
+}
+
+.hero__nasa {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Garante centralização */
+  font-family: 'Nasa', sans-serif;
+  font-size: 35vw; 
+  width: 100%;
+  text-align: center;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.08);
+  white-space: nowrap;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero__margaret {
+  position: relative;
+  z-index: 3;
+
+  width: min(76vw, 380px);
+  max-height: 63svh;
+  object-fit: contain;
+
+  /* 🔥 sombra normal */
+  filter:
+    drop-shadow(0 16px 36px rgba(0, 0, 0, 0.6))
+    
+    /* 🔵 sombra azul espalhada */
+    drop-shadow(0 0 40px #001542cc)
+    drop-shadow(0 0 80px #001542cc)
+    drop-shadow(0 0 120px #001542cc);
+}
+
+.hero__nome {
+  position: absolute;
+  left: 50%;
+  bottom: 32px;
+  transform: translateX(-50%);
+  margin: 0;
+  z-index: 5;
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(1.5rem, 4.2vw, 2.4rem);
+  line-height: 0.92;
+  color: var(--branco);
+  text-shadow: 0 2px 16px rgba(0,0,0,0.6);
+}
+
+/* menu lateral */
+.nav-lateral {
+  position: fixed;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9999; /* Valor alto para ignorar outros contextos */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  pointer-events: all; /* Garante clique no mobile */
+}
+
+.nav-lateral__item {
+  width: 46px;
+  height: 46px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--borda);
+  display: grid;
+  place-items: center;
+  box-shadow: var(--sombra);
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.nav-lateral__item:hover,
+.nav-lateral__item.is-active {
+  transform: translateY(-2px) scale(1.03);
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.22);
+}
+
+.nav-lateral__icone {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  opacity: 0.95;
+}
+
+/* =========================
+   SEÇÕES GERAIS
+========================= */
+.secao {
+  width: min(1120px, calc(100% - 24px));
+  margin: 0 auto;
+  padding: 34px 0;
+}
+
+.secao__cabecalho {
+  margin-bottom: 18px;
+}
+
+.secao__titulo {
+  margin: 0 0 8px;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  line-height: 1.05;
+}
+
+.secao__texto {
+  margin: 0;
+  color: var(--texto-fraco);
+  line-height: 1.6;
+}
+
+/* =========================
+   CARROSSEL
+========================= */
+.carrossel {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(230px, 72vw);
+  gap: 16px;
+  overflow-x: auto;
+  padding: 10px 4px 16px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.carrossel::-webkit-scrollbar {
+  height: 8px;
+}
+
+.carrossel::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.18);
+  border-radius: 999px;
+}
+
+.polaroid {
+  scroll-snap-align: start;
+  background: rgba(255,255,255,0.98);
+  color: #111;
+  border-radius: 18px;
+  padding: 10px 10px 22px;
+  box-shadow: var(--sombra);
+  transform: rotate(var(--rot, 0deg));
+}
+
+/* borda superior */
+.polaroid__img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+
+/* borda lateral direita/esquerda já ficam pelo padding do card */
+/* borda de baixo maior */
+.polaroid__legenda {
+  margin: 14px 6px 0;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+}
+
+/* =========================
+   SOBRE
+========================= */
+.sobre__bloco {
+  display: grid;
+  gap: 18px;
+  align-items: start;
+}
+
+.sobre__imagem {
+  width: 100%;
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  object-fit: cover;
+  background: rgba(255,255,255,0.04);
+}
+
+.sobre__texto {
+  background: var(--cartao);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  padding: 18px;
+  line-height: 1.7;
+  color: var(--texto);
+  box-shadow: var(--sombra);
+}
+
+.sobre__texto p {
+  margin: 0 0 12px;
+}
+
+.sobre__texto p:last-child {
+  margin-bottom: 0;
+}
+
+/* bloco do apollo com logo */
+.apollo-card {
+  position: relative;
+  border-radius: var(--raio);
+  overflow: visible;
+  box-shadow: var(--sombra);
+  border: 1px solid var(--borda);
+  min-height: 280px;
+  background: rgba(255,255,255,0.04);
+}
+
+.apollo-card__imagem {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  border-radius: var(--raio);
+
+  position: relative;
+  z-index: 1; /* 👈 fica atrás */
+}
+
+.apollo-card__logo {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 70px;
+  height: 70px;
+  z-index: 999;
+  filter: drop-shadow(0 8px 20px rgba(0,0,0,0.7));
+  /* A animação agora vem da classe .autoRotate no HTML ou apenas via CSS se preferir */
+}
+
+@keyframes AutoRotateAnimation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================
+   TIMELINE
+========================= */
+.timeline {
+  position: relative;
+  padding: 8px 0 4px;
+  
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 3px;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.28), rgba(255,255,255,0.08));
+}
+
+.timeline__item {
+  display: grid;
+  grid-template-columns: 1fr 84px 1fr;
+  align-items: center;
+  min-height: 168px;
+  position: relative;
+}
+
+.timeline__conteudo {
+  background: var(--cartao);
+  border: 1px solid var(--borda);
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: var(--sombra);
+  max-width: 100%;
+  position: relative;
+}
+
+.timeline__conteudo::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 34px;
+  height: 2px;
+  background: rgba(255,255,255,0.28);
+}
+
+.timeline__item--esquerda .timeline__conteudo {
+  justify-self: end;
+  margin-right: 10px;
+}
+
+.timeline__item--esquerda .timeline__conteudo::before {
+  right: -34px;
+}
+
+.timeline__item--direita .timeline__conteudo {
+  justify-self: start;
+  margin-left: 10px;
+}
+
+.timeline__item--direita .timeline__conteudo::before {
+  left: -34px;
+}
+
+.timeline__ano {
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+  color: var(--branco);
+}
+
+.timeline__conteudo p {
+  margin: 0;
+  line-height: 1.6;
+  color: var(--texto-fraco);
+}
+
+.timeline__eixo {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 100%;
+}
+
+.timeline__bolha {
+  position: relative;
+  z-index: 2;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 8px;
+  background: linear-gradient(180deg, var(--nasa-azul), var(--nasa-azul-2));
+  color: var(--branco);
+  font-weight: 900;
+  font-size: 0.95rem;
+  box-shadow: 0 0 0 6px rgba(0, 18, 25, 1), var(--sombra);
+  border: 2px solid rgba(255,255,255,0.15);
+}
+
+.timeline__vazio {
+  min-height: 1px;
+}
+
+/* =========================
+   RODAPÉ
+========================= */
+.rodape {
+  width: min(1120px, calc(100% - 24px));
+  margin: 0 auto;
+  padding: 28px 0 42px;
+  text-align: center;
+  color: var(--texto-fraco);
+}
+
+.rodape__texto,
+.rodape__credito {
+  margin: 0;
+}
+
+.rodape__credito {
+  margin-top: 8px;
+  color: rgba(255,255,255,0.86);
+  font-weight: 700;
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
+@media (min-width: 768px) {
+  .hero__margaret {
+    width: min(42vw, 430px);
+  }
+
+  .hero__nome {
+    bottom: 34px;
+  }
+
+  .secao {
+    padding: 56px 0;
+  }
+
+  .carrossel {
+    grid-auto-columns: minmax(280px, 320px);
+  }
+
+  .sobre__bloco {
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 22px;
+  }
+
+  .sobre__bloco--inverso {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .sobre__bloco--inverso .apollo-card {
+    order: 2;
+  }
+
+  .sobre__bloco--inverso .sobre__texto {
+    order: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .nav-lateral {
+    left: 8px;
+    gap: 10px;
+  }
+
+  .nav-lateral__item {
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+  }
+
+  .nav-lateral__icone {
+    width: 20px;
+    height: 20px;
+  }
+
+  .timeline::before {
+    left: 50%;
+  }
+
+  .timeline__item {
+    grid-template-columns: 1fr 62px 1fr;
+    min-height: 156px;
+  }
+
+  .timeline__bolha {
+    width: 60px;
+    height: 60px;
+    font-size: 0.84rem;
+  }
+
+  .timeline__conteudo::before {
+    width: 24px;
+  }
+
+  .timeline__item--esquerda .timeline__conteudo::before {
+    right: -24px;
+  }
+
+  .timeline__item--direita .timeline__conteudo::before {
+    left: -24px;
+  }
+
+  .apollo-card__logo {
+    width: 52px;
+    height: 52px;
+  }
+}
+

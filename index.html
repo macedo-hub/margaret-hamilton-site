@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mulheres notórias na área da tecnologia | Margaret Hamilton</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.cdnfonts.com/css/nasa" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animacao.css">
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<main id="conteudo">
+  <section class="hero" id="inicio">
+    <div class="hero__overlay"></div>
+    
+    <h1 class="hero__titulo autoShow">Mulheres notórias na área da tecnologia</h1>
+
+    <div class="hero__nasa" aria-hidden="true" data-text="NASA">NASA</div>
+
+    <img class="hero__margaret imageRevealHero" src="img/margaret/margaret-hamilton.png" alt="Margaret Hamilton" />
+    
+    <p class="hero__nome autoShow">Margaret Hamilton</p>
+
+    <nav class="nav-lateral" aria-label="Navegação principal">
+      <a class="nav-lateral__item" href="#inicio" aria-label="Ir para o início">
+        <img src="img/ui/icone-home.png" alt="" class="nav-lateral__icone">
+      </a>
+      <a class="nav-lateral__item" href="#galeria" aria-label="Ir para a galeria">
+        <img src="img/ui/icone-sobre.png" alt="" class="nav-lateral__icone">
+      </a>
+      <a class="nav-lateral__item" href="#linha-do-tempo" aria-label="Ir para a linha do tempo">
+        <img src="img/ui/icone-timeline.png" alt="" class="nav-lateral__icone">
+      </a>
+    </nav>
+  </section>
+
+    <!-- CARROSSEL -->
+<section class="secao" id="galeria">
+  <div class="secao__cabecalho">
+    <h2 class="secao__titulo autoShow">Galeria</h2>
+    <p class="secao__texto autoShow">
+      Momentos marcantes de Margaret Hamilton e sua atuação na NASA.
+    </p>
+  </div>
+
+      <div class="carrossel" aria-label="Galeria de imagens">
+        <article class="polaroid ">
+          <img src="img/margaret/margaret-hamilton-01.webp" alt="Margaret Hamilton em um momento de trabalho" class="polaroid__img imageReveal">
+          <p class="polaroid__legenda">Margaret em atividade</p>
+        </article>
+
+        <article class="polaroid">
+          <img src="img/margaret/margaret-hamilton-02.webp" alt="Margaret Hamilton em outro momento na NASA" class="polaroid__img">
+          <p class="polaroid__legenda">Margaret na NASA</p>
+        </article>
+
+        <article class="polaroid">
+          <img src="img/margaret/margaret-hamilton.png" alt="Imagem principal de Margaret Hamilton" class="polaroid__img">
+          <p class="polaroid__legenda">Margaret Hamilton</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- SOBRE MARGARET -->
+    <section class="secao sobre" id="sobre">
+  <div class="secao__cabecalho">
+    <h2 class="secao__titulo autoShow">Sobre Margaret Hamilton</h2>
+  </div>
+
+      <div class="sobre__bloco">
+        <img
+          src="img/margaret/margaret-hamilton.png"
+          alt="Margaret Hamilton"
+          class="sobre__imagem"
+        />
+
+        <div class="sobre__texto autoShow">
+          <p>
+            Margaret Heafield Hamilton é uma cientista e engenheira norte-americana de grande importância para a história da astronáutica.
+          </p>
+          <p>
+            Ela trabalhou na NASA no projeto Apollo 11, desenvolvendo o software que ajudou a tornar possível a chegada do homem à Lua pela primeira vez.
+          </p>
+          <p>
+            Além disso, contribuiu em diversos outros projetos importantes e publicou mais de cem artigos sobre suas pesquisas.
+          </p>
+          <p>
+            Em uma época na qual o termo “engenharia de software” ainda não existia, ela foi a primeira a se referir dessa forma ao trabalho que realizava.
+          </p>
+          <p>
+            Em 2016, recebeu a Medalha Presidencial da Liberdade como homenagem ao seu trabalho na NASA.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE APOLLO 11 -->
+    <section class="secao sobre" id="apollo">
+      <div class="secao__cabecalho">
+        <h2 class="secao__titulo autoShow">Sobre o Apollo 11</h2>
+      </div>
+
+      <div class="sobre__bloco sobre__bloco--inverso">
+        <div class="sobre__texto autoShow">
+          <p>
+            O Apollo 11 foi a missão espacial que levou os primeiros seres humanos à Lua.
+          </p>
+          <p>
+            O projeto entrou para a história da exploração espacial e ficou marcado pelo trabalho técnico e cuidadoso de equipes como a de Margaret Hamilton.
+          </p>
+          <p>
+            O software desenvolvido por ela foi essencial para lidar com os problemas que surgiram durante a fase final da missão.
+          </p>
+        </div>
+
+        <div class="apollo-card autoShow">
+          <img
+            src="img/apollo/apollo-11.webp"
+            alt="Imagem do Apollo 11"
+            class="apollo-card__imagem"
+          >
+          <img
+            src="img/logos/nasa-logo.png"
+            alt="Logo da NASA"
+            class="apollo-card__logo autoRotate" 
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- LINHA DO TEMPO -->
+    <section class="secao timeline-secao" id="linha-do-tempo">
+      <div class="secao__cabecalho">
+        <h2 class="secao__titulo autoShow">Linha do tempo</h2>
+        <p class="secao__texto autoShow">
+          Uma visão resumida da trajetória de Margaret Hamilton.
+        </p>
+      </div>
+
+      <div class="timeline">
+        <article class="timeline__item timeline__item--esquerda">
+          <div class="timeline__conteudo fadeup">
+            <h3 class="timeline__ano">1936</h3>
+            <p>Nasce em Paoli, Indiana, nos Estados Unidos.</p>
+          </div>
+          <div class="timeline__eixo">
+            <span class="timeline__bolha fadeup">1936</span>
+          </div>
+          <div class="timeline__vazio"></div>
+        </article>
+
+        <article class="timeline__item timeline__item--direita">
+          <div class="timeline__vazio"></div>
+          <div class="timeline__eixo">
+            <span class="timeline__bolha fadeup">1958</span>
+          </div>
+          <div class="timeline__conteudo fadeup">
+            <h3 class="timeline__ano">1958</h3>
+            <p>Forma-se em Matemática pelo Earlham College.</p>
+          </div>
+        </article>
+
+        <article class="timeline__item timeline__item--esquerda">
+          <div class="timeline__conteudo fadeup">
+            <h3 class="timeline__ano">1960</h3>
+            <p>Passa a trabalhar no MIT desenvolvendo programas meteorológicos.</p>
+          </div>
+          <div class="timeline__eixo">
+            <span class="timeline__bolha fadeup">1960</span>
+          </div>
+          <div class="timeline__vazio"></div>
+        </article>
+
+        <article class="timeline__item timeline__item--direita">
+          <div class="timeline__vazio"></div>
+          <div class="timeline__eixo">
+            <span class="timeline__bolha fadeup">1969</span>
+          </div>
+          <div class="timeline__conteudo fadeup">
+            <h3 class="timeline__ano">1969</h3>
+            <p>Seu software ajuda a missão Apollo 11 durante a alunissagem.</p>
+          </div>
+        </article>
+
+        <article class="timeline__item timeline__item--esquerda">
+          <div class="timeline__conteudo fadeup">
+            <h3 class="timeline__ano">2016</h3>
+            <p>Recebe a Medalha Presidencial da Liberdade.</p>
+          </div>
+          <div class="timeline__eixo">
+            <span class="timeline__bolha fadeup">2016</span>
+          </div>
+          <div class="timeline__vazio"></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer class="rodape" id="creditos">
+      <p class="rodape__texto">Site em homenagem a Margaret Hamilton e às mulheres na tecnologia.</p>
+      <p class="rodape__credito">
+        Desenvolvido por Lucas, Iasmim e Sabrina.
+      </p>
+    </footer>
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
