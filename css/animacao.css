@@ -1,4 +1,6 @@
-/* --- Rotação da Logo (SÓ AO SCROLLAR) --- */
+/* =========================
+   ANIMAÇÕES DE ROTAÇÃO
+========================= */
 @keyframes AutoRotateAnimation {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
@@ -12,14 +14,14 @@
   height: 100px;
 }
 
-/* --- Efeito Glitch NASA (Sem corte e sem brilho extra) --- */
+/* =========================
+   ANIMAÇÕES DO HERO E GLITCH NASA
+========================= */
 .hero__nasa {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  
-  /* O segredo: o texto original fica invisível para não dobrar a opacidade */
   color: transparent; 
   font-family: 'Nasa', sans-serif;
   z-index: 1;
@@ -34,36 +36,24 @@
   left: 0;
   width: 100%;
   height: 100%;
-  
-  /* --- GRADIENTE NASA (Vermelho, Branco, Azul) --- */
   background: linear-gradient(to right, var(--nasa-vermelho), var(--branco), var(--nasa-azul));
-  -webkit-background-clip: text; /* Faz o fundo ficar só no texto */
+  -webkit-background-clip: text; 
   background-clip: text;
-  color: transparent; /* Deixa o texto invisível para o gradiente aparecer */
-  
-  /* Opacidade do efeito (ajuste o 0.3 para mais ou menos brilho) */
+  color: transparent; 
   opacity: 0.3; 
-
   pointer-events: none;
-  
-  /* Mantém o clip-path da metade de baixo que já tínhamos */
-  clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
-  animation: glitchBottom 2s linear infinite;
 }
 
 .hero__nasa::before {
-  /* Fatia de cima: vai exatamente até o meio (50%) */
   clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
   animation: glitchTop 3s linear infinite;
 }
 
 .hero__nasa::after {
-  /* Fatia de baixo: começa exatamente no meio (50%) */
   clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
   animation: glitchBottom 2s linear infinite;
 }
 
-/* Keyframes: Reduzi um pouco o deslocamento para não separar as fatias demais no mobile */
 @keyframes glitchTop {
   2%, 64% { transform: translate(1px, -1px); }
   4%, 60% { transform: translate(-1px, 1px); }
@@ -76,7 +66,9 @@
   62% { transform: translate(-4px, 1px) skew(3deg); }
 }
 
-/* --- Smooth Scroll Animation --- */
+/* =========================
+   ANIMAÇÕES DE SCROLL
+========================= */
 .autoShow {
   animation: text-appear both;
   animation-timeline: view();
@@ -94,11 +86,11 @@
   }
 }
 
-/* --- fadeup --- */
 .fadeup {
   animation: fadeUp both;
   animation-timeline: view();
 }
+
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -109,4 +101,3 @@
     transform: translateY(0) scale(1);
   }
 }
-
