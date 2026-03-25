@@ -7,6 +7,11 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500&display=swap" rel="stylesheet">
+  
+  <link href="https://fonts.cdnfonts.com/css/precious" rel="stylesheet">
+  
   <link href="https://fonts.cdnfonts.com/css/nasa" rel="stylesheet">
 
   <link rel="stylesheet" href="css/style.css" />
@@ -15,59 +20,81 @@
 <body>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
-<main id="conteudo">
-  <section class="hero" id="inicio">
-    <div class="hero__overlay"></div>
-    
-    <h1 class="hero__titulo autoShow">Mulheres notórias na área da tecnologia</h1>
+  <nav class="nav-lateral" aria-label="Navegação principal">
+    <a class="nav-lateral__item" href="#inicio" aria-label="Ir para o início">
+      <img src="img/ui/icone-home.png" alt="" class="nav-lateral__icone">
+    </a>
+    <a class="nav-lateral__item" href="#galeria" aria-label="Ir para a galeria">
+      <img src="img/ui/icone-galeria.png" alt="" class="nav-lateral__icone">
+    </a>
+    <a class="nav-lateral__item" href="#linha-do-tempo" aria-label="Ir para a linha do tempo">
+      <img src="img/ui/icone-tempo.png" alt="" class="nav-lateral__icone">
+    </a>
+    <a class="nav-lateral__item" href="#curiosidades" aria-label="Ir para curiosidades">
+      <img src="img/ui/icone-curiosidades.png" alt="" class="nav-lateral__icone">
+    </a>
+  </nav>
 
-    <div class="hero__nasa" aria-hidden="true" data-text="NASA">NASA</div>
+  <main id="conteudo">
+    <section class="hero" id="inicio">
+      <div class="hero__overlay"></div>
+      
+      <h1 class="hero__titulo autoShow">Mulheres notórias na área da tecnologia</h1>
 
-    <img class="hero__margaret imageRevealHero" src="img/margaret/margaret-hamilton.png" alt="Margaret Hamilton" />
-    
-    <p class="hero__nome autoShow">Margaret Hamilton</p>
+      <div class="hero__nasa" aria-hidden="true" data-text="NASA">NASA</div>
 
-    <nav class="nav-lateral" aria-label="Navegação principal">
-      <a class="nav-lateral__item" href="#inicio" aria-label="Ir para o início">
-        <img src="img/ui/icone-home.png" alt="" class="nav-lateral__icone">
-      </a>
-      <a class="nav-lateral__item" href="#galeria" aria-label="Ir para a galeria">
-        <img src="img/ui/icone-sobre.png" alt="" class="nav-lateral__icone">
-      </a>
-      <a class="nav-lateral__item" href="#linha-do-tempo" aria-label="Ir para a linha do tempo">
-        <img src="img/ui/icone-timeline.png" alt="" class="nav-lateral__icone">
-      </a>
-    </nav>
-  </section>
-
-    <!-- CARROSSEL -->
-<section class="secao" id="galeria">
-  <div class="secao__cabecalho">
-    <h2 class="secao__titulo autoShow">Galeria</h2>
-    <p class="secao__texto autoShow">
-      Momentos marcantes de Margaret Hamilton e sua atuação na NASA.
-    </p>
-  </div>
-
-      <div class="carrossel" aria-label="Galeria de imagens">
-        <article class="polaroid ">
-          <img src="img/margaret/margaret-hamilton-01.webp" alt="Margaret Hamilton em um momento de trabalho" class="polaroid__img imageReveal">
-          <p class="polaroid__legenda">Margaret em atividade</p>
-        </article>
-
-        <article class="polaroid">
-          <img src="img/margaret/margaret-hamilton-02.webp" alt="Margaret Hamilton em outro momento na NASA" class="polaroid__img">
-          <p class="polaroid__legenda">Margaret na NASA</p>
-        </article>
-
-        <article class="polaroid">
-          <img src="img/margaret/margaret-hamilton.png" alt="Imagem principal de Margaret Hamilton" class="polaroid__img">
-          <p class="polaroid__legenda">Margaret Hamilton</p>
-        </article>
+      <div class="hero__perfil">
+        <img class="hero__margaret imageRevealHero" src="img/margaret/margaret-hamilton.png" alt="Margaret Hamilton" />
+        <p class="hero__nome autoShow">Margaret Hamilton</p>
       </div>
     </section>
 
-    <!-- SOBRE MARGARET -->
+    <section class="secao" id="galeria">
+  <div class="secao__cabecalho">
+    <h2 class="secao__titulo typewriter type-galeria">Galeria</h2>
+    <p class="secao__texto autoShow">
+      Momentos marcantes de Margaret Hamilton e sua trajetória lendária.
+    </p>
+  </div>
+
+  <div class="carrossel" aria-label="Galeria de imagens">
+    <article class="polaroid">
+      <img src="img/margaret/margaret-hamilton-01.webp" alt="Margaret Hamilton trabalhando no MIT" class="polaroid__img imageReveal">
+      <p class="polaroid__legenda">Margaret em atividade</p>
+    </article>
+
+    <article class="polaroid">
+      <img src="img/margaret/margaret-hamilton-02.webp" alt="Margaret Hamilton na NASA" class="polaroid__img imageReveal">
+      <p class="polaroid__legenda">Margaret na NASA</p>
+    </article>
+
+    <article class="polaroid">
+      <img src="img/margaret/margaret-hamilton-03.jpg" alt="Margaret Hamilton ao lado do código da Apollo 11 impresso" class="polaroid__img imageReveal">
+      <p class="polaroid__legenda">O código da Apollo 11</p>
+    </article>
+
+    <article class="polaroid">
+      <img src="img/margaret/margaret-hamilton-04.jpg" alt="Margaret Hamilton em sua mesa de trabalho" class="polaroid__img imageReveal">
+      <p class="polaroid__legenda">Engenharia de Software</p>
+    </article>
+
+    <article class="polaroid">
+      <img src="img/margaret/margaret-e-a-filha.jpg" alt="Margaret Hamilton e sua filha Lauren no laboratório" class="polaroid__img imageReveal">
+      <p class="polaroid__legenda">Margaret e Lauren</p>
+    </article>
+
+    <article class="polaroid">
+      <img src="img/margaret/margaret-hamilton-e-obama.jpeg" alt="Margaret recebendo a medalha de Barack Obama" class="polaroid__img imageReveal">
+      <p class="polaroid__legenda">Medalha da Liberdade</p>
+    </article>
+
+    <article class="polaroid">
+      <img src="img/margaret/margaret-hamilton.png" alt="Retrato de Margaret Hamilton" class="polaroid__img imageReveal">
+      <p class="polaroid__legenda">Margaret Hamilton</p>
+    </article>
+  </div>
+</section>
+
     <section class="secao sobre" id="sobre">
   <div class="secao__cabecalho">
     <h2 class="secao__titulo autoShow">Sobre Margaret Hamilton</h2>
@@ -75,7 +102,7 @@
 
       <div class="sobre__bloco">
         <img
-          src="img/margaret/margaret-hamilton.png"
+          src="img/margaret/margaret-hamilton-01.webp"
           alt="Margaret Hamilton"
           class="sobre__imagem"
         />
@@ -100,7 +127,6 @@
       </div>
     </section>
 
-    <!-- SOBRE APOLLO 11 -->
     <section class="secao sobre" id="apollo">
       <div class="secao__cabecalho">
         <h2 class="secao__titulo autoShow">Sobre o Apollo 11</h2>
@@ -134,7 +160,6 @@
       </div>
     </section>
 
-    <!-- LINHA DO TEMPO -->
     <section class="secao timeline-secao" id="linha-do-tempo">
       <div class="secao__cabecalho">
         <h2 class="secao__titulo autoShow">Linha do tempo</h2>
@@ -201,7 +226,38 @@
       </div>
     </section>
 
-    <!-- RODAPÉ -->
+<section class="secao" id="curiosidades">
+  <div class="secao__cabecalho">
+    <h2 class="secao__titulo typewriter type-curiosidades">Curiosidades</h2>
+  </div>
+
+  <div class="curiosidades__lista">
+    <article class="curiosidade-card autoShow">
+      <img src="img/margaret/margaret-e-a-filha.jpg" alt="Margaret e sua filha" class="curiosidade-card__img imageReveal">
+      <div class="curiosidade-card__txt">
+        <h3>A filha ajudou na segurança!</h3>
+        <p class="">A filha pequena de Margaret costumava ir com ela ao trabalho e brincar com o sistema. Isso fez Margaret perceber que erros humanos podiam acontecer facilmente, o que a levou a criar programas mais seguros e confiáveis.</p>
+      </div>
+    </article>
+
+    <article class="curiosidade-card autoShow">
+      <img src="img/margaret/margaret-hamilton-03.jpg" alt="Código escrito à mão" class="curiosidade-card__img imageReveal">
+      <div class="curiosidade-card__txt">
+        <h3>O código era escrito à mão</h3>
+        <p class="">Todo o software era inicialmente escrito em folhas de papel, linha por linha. Só depois esse código era passado para o computador e utilizado nas missões, como a Apollo 11 Moon Landing.</p>
+      </div>
+    </article>
+
+    <article class="curiosidade-card autoShow">
+      <img src="img/margaret/margaret-hamilton-e-obama.jpeg" alt="Margaret recebendo medalha do Obama" class="curiosidade-card__img imageReveal">
+      <div class="curiosidade-card__txt">
+        <h3>Reconhecimento tardio</h3>
+        <p class="">Por muito tempo, o trabalho de Margaret ficou "invisível", com a maior parte do mérito indo para os astronautas. Só anos depois ela recebeu prêmios importantes, como a Medalha Presidencial da Liberdade.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
     <footer class="rodape" id="creditos">
       <p class="rodape__texto">Site em homenagem a Margaret Hamilton e às mulheres na tecnologia.</p>
       <p class="rodape__credito">
