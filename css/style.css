@@ -79,22 +79,25 @@ a {
   z-index: 0;
 }
 
+/* Título com Fira Code (Sem barras extras) */
 .hero__titulo {
   position: absolute;
   top: 18px;
-  /* Nova forma de centralizar sem conflito: */
   left: 0;
   right: 0;
   margin: 0 auto;
-  
-  width: min(92vw, 600px);
+  /* Aumentei um pouquinho a largura máxima para o texto maior não quebrar em muitas linhas */
+  width: min(95vw, 800px); 
   text-align: center;
-  font-size: clamp(1.2rem, 3.2vw, 2rem);
-  line-height: 1.1;
-  font-weight: 800;
-  letter-spacing: 0.02em;
-  color: rgba(255,255,255,0.85);
-  text-shadow: 0 3px 14px rgba(0,0,0,0.5);
+  font-family: 'Fira Code', monospace; 
+  
+  /* 🔥 AQUI ESTÁ A MÁGICA DO TAMANHO 🔥 */
+  /* Antes era clamp(0.9rem, 3.5vw, 1.5rem) */
+  font-size: clamp(1.3rem, 5vw, 2.2rem); 
+  
+  font-weight: 500;
+  color: var(--texto-fraco);
+  letter-spacing: -0.02em;
   z-index: 5;
 }
 
@@ -102,7 +105,7 @@ a {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); /* Garante centralização */
+  transform: translate(-50%, -50%); 
   font-family: 'Nasa', sans-serif;
   font-size: 35vw; 
   width: 100%;
@@ -110,41 +113,64 @@ a {
   letter-spacing: 0.05em;
   color: rgba(255, 255, 255, 0.08);
   white-space: nowrap;
-  z-index: 1;
+  
+  /* GARANTIA DE FUNDO */
+  z-index: 1; 
   pointer-events: none;
+}
+
+/* --- Container para alinhar Foto + Nome --- */
+.hero__perfil {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px; 
+  
+  /* 🔥 O SEGREDO PARA NÃO FICAR ATRÁS DO FUNDO: */
+  position: relative; 
+  z-index: 10; /* Puxa a foto e o nome para a frente de TUDO */
 }
 
 .hero__margaret {
   position: relative;
   z-index: 3;
-
   width: min(76vw, 380px);
-  max-height: 63svh;
+  max-height: 55svh; 
   object-fit: contain;
-
-  /* 🔥 sombra normal */
+  /* Sombras da foto */
   filter:
     drop-shadow(0 16px 36px rgba(0, 0, 0, 0.6))
-    
-    /* 🔵 sombra azul espalhada */
     drop-shadow(0 0 40px #001542cc)
     drop-shadow(0 0 80px #001542cc)
     drop-shadow(0 0 120px #001542cc);
 }
 
+/* Nome com a Fonte Precious e centralizado corretamente */
+/* No seu arquivo css/style.css, substitua este bloco: */
+
+/* Nome com a Fonte Precious e centralizado corretamente */
 .hero__nome {
-  position: absolute;
-  left: 50%;
-  bottom: 32px;
-  transform: translateX(-50%);
-  margin: 0;
-  z-index: 5;
+  margin: 15px 0 0 0; /* Espaçamento abaixo da foto */
   text-align: center;
-  font-family: Georgia, 'Times New Roman', serif;
-  font-size: clamp(1.5rem, 4.2vw, 2.4rem);
-  line-height: 0.92;
-  color: var(--branco);
-  text-shadow: 0 2px 16px rgba(0,0,0,0.6);
+  
+  /* Usa a fonte Precious que você pediu */
+  font-family: 'Precious', sans-serif;
+  font-size: clamp(3rem, 10vw, 5rem); /* Fica grande e legível */
+  line-height: 1;
+  
+  color: #FFFFFF; /* Branco puro */
+  
+  /* Sombras para dar contraste e separar do fundo */
+  text-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.9), /* Sombra preta bem forte */
+    0 0 10px rgba(255, 255, 255, 0.4); /* Brilho leve ao redor */
+  
+  position: relative;
+  z-index: 15; /* Maior segurança de ficar na frente */
+  
+  /* Força a ser 100% visível caso algum script tente interferir */
+  opacity: 1 !important; 
 }
 
 /* menu lateral */
@@ -153,11 +179,11 @@ a {
   left: 10px;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 9999; /* Valor alto para ignorar outros contextos */
+  z-index: 9999; 
   display: flex;
   flex-direction: column;
   gap: 12px;
-  pointer-events: all; /* Garante clique no mobile */
+  pointer-events: all; 
 }
 
 .nav-lateral__item {
@@ -218,10 +244,10 @@ a {
 .carrossel {
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: minmax(230px, 72vw);
-  gap: 16px;
+  grid-auto-columns: minmax(260px, 75vw); 
+  gap: 20px;
   overflow-x: auto;
-  padding: 10px 4px 16px;
+  padding: 20px 10px;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
 }
@@ -245,7 +271,6 @@ a {
   transform: rotate(var(--rot, 0deg));
 }
 
-/* borda superior */
 .polaroid__img {
   width: 100%;
   aspect-ratio: 4 / 5;
@@ -254,8 +279,6 @@ a {
   display: block;
 }
 
-/* borda lateral direita/esquerda já ficam pelo padding do card */
-/* borda de baixo maior */
 .polaroid__legenda {
   margin: 14px 6px 0;
   text-align: center;
@@ -299,7 +322,6 @@ a {
   margin-bottom: 0;
 }
 
-/* bloco do apollo com logo */
 .apollo-card {
   position: relative;
   border-radius: var(--raio);
@@ -314,11 +336,9 @@ a {
   width: 100%;
   height: 100%;
   object-fit: cover;
-
   border-radius: var(--raio);
-
   position: relative;
-  z-index: 1; /* 👈 fica atrás */
+  z-index: 1; 
 }
 
 .apollo-card__logo {
@@ -329,16 +349,6 @@ a {
   height: 70px;
   z-index: 999;
   filter: drop-shadow(0 8px 20px rgba(0,0,0,0.7));
-  /* A animação agora vem da classe .autoRotate no HTML ou apenas via CSS se preferir */
-}
-
-@keyframes AutoRotateAnimation {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 /* =========================
@@ -347,7 +357,6 @@ a {
 .timeline {
   position: relative;
   padding: 8px 0 4px;
-  
 }
 
 .timeline::before {
@@ -448,6 +457,39 @@ a {
 }
 
 /* =========================
+   CURIOSIDADES
+========================= */
+.curiosidades__lista {
+  display: grid;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.curiosidade-card {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 20px;
+  background: var(--cartao);
+  padding: 15px;
+  border-radius: var(--raio);
+  border: 1px solid var(--borda);
+  align-items: center;
+}
+
+.curiosidade-card__img {
+  width: 120px;
+  height: 120px;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+.curiosidade-card__txt h3 {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+  color: var(--branco);
+}
+
+/* =========================
    RODAPÉ
 ========================= */
 .rodape {
@@ -475,10 +517,6 @@ a {
 @media (min-width: 768px) {
   .hero__margaret {
     width: min(42vw, 430px);
-  }
-
-  .hero__nome {
-    bottom: 34px;
   }
 
   .secao {
@@ -555,5 +593,12 @@ a {
     width: 52px;
     height: 52px;
   }
-}
 
+  .curiosidade-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .curiosidade-card__img {
+    margin: 0 auto;
+  }
+}
