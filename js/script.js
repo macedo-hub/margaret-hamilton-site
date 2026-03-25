@@ -20,7 +20,7 @@ const observerNav = new IntersectionObserver((entries) => {
   });
 }, {
   root: null,
-  threshold: 0.4 // Ativa quando 40% da seção aparece
+  threshold: 0.4
 });
 
 secoes.forEach((secao) => observerNav.observe(secao));
@@ -42,7 +42,6 @@ let intervalo;
 
 function iniciarAutoScroll() {
   intervalo = setInterval(() => {
-    // Calcula a largura de um card + o espaço (gap)
     const cardWidth = carrossel.querySelector('.polaroid').offsetWidth + 16; 
     const scrollFim = carrossel.scrollWidth - carrossel.clientWidth;
 
@@ -54,23 +53,9 @@ function iniciarAutoScroll() {
   }, 3500);
 }
 
-// Pausa o carrossel quando o usuário interage
 carrossel.addEventListener('mouseenter', () => clearInterval(intervalo));
 carrossel.addEventListener('mouseleave', iniciarAutoScroll);
 carrossel.addEventListener('touchstart', () => clearInterval(intervalo));
 carrossel.addEventListener('touchend', iniciarAutoScroll);
 
 iniciarAutoScroll();
-
-/* ============================================================
-   4. TYPEWRITER (APENAS SE USAR A CLASSE NO HTML)
-   ============================================================ */
-// Se você for usar o efeito de digitação em algum lugar, 
-// a função precisa estar definida aqui:
-function initTypewriter() {
-  const elementos = document.querySelectorAll('.typewriter-auto');
-  // ... lógica da função se você for usar ...
-}
-
-// Se não tiver a função definida, melhor deixar essa linha comentada:
-// initTypewriter();
