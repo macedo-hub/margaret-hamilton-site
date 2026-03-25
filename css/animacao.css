@@ -34,11 +34,21 @@
   left: 0;
   width: 100%;
   height: 100%;
-  /* Cor sólida sem transparência para evitar o efeito de "clarear" nas pontas */
-  /* Se quiser um cinza bem clarinho/transparente, use uma cor fixa em vez de RGBA */
-  color: #ffffff30; /* Um cinza escuro tecnológico que combina com o fundo */
-  background: transparent;
+  
+  /* --- GRADIENTE NASA (Vermelho, Branco, Azul) --- */
+  background: linear-gradient(to right, var(--nasa-vermelho), var(--branco), var(--nasa-azul));
+  -webkit-background-clip: text; /* Faz o fundo ficar só no texto */
+  background-clip: text;
+  color: transparent; /* Deixa o texto invisível para o gradiente aparecer */
+  
+  /* Opacidade do efeito (ajuste o 0.3 para mais ou menos brilho) */
+  opacity: 0.3; 
+
   pointer-events: none;
+  
+  /* Mantém o clip-path da metade de baixo que já tínhamos */
+  clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+  animation: glitchBottom 2s linear infinite;
 }
 
 .hero__nasa::before {
